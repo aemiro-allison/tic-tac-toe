@@ -1,0 +1,110 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding-top: calc(100%/12);
+  box-sizing: border-box;
+}
+
+div {
+  background: transparent;
+  border:0px;
+}
+
+.wrapper {
+  max-width: 700px;
+  height: 80%;
+  margin: 0 auto;
+}
+
+.wrapper * {
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 20%;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+header h1 {
+  color: orange;
+}
+
+main {
+  height: 75%;
+}
+
+#game-container {
+  width: 100%;
+  height: 100%;
+}
+
+.game-cell {
+  display: block;
+  position: relative;
+  width: calc(100%/3);
+  height: calc(100%/3);
+  float: left;
+  cursor: pointer;
+}
+
+.game-cell:nth-of-type(5) {
+  border: 3px solid red;
+}
+
+.game-cell:nth-of-type(4), .game-cell:nth-of-type(6) {
+  border: 3px solid red;
+  border-left: none;
+  border-right: none;
+}
+
+.game-cell:nth-of-type(2), .game-cell:nth-of-type(8) {
+  border: 3px solid red;
+  border-top: none;
+  border-bottom: none;
+}
+
+.cross {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  width: 10px;
+  height: 50%;
+  background: black;
+  transform: rotate(45deg);
+}
+.cross:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: black;
+  transform: rotate(-90deg);
+}
+
+.circle {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  width: 25%;
+  height: 40%;
+  border: 6px solid black;
+  border-radius: 50%;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+
