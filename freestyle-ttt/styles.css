@@ -4,8 +4,11 @@ html, body {
 
 body {
   margin: 0;
-  padding-top: calc(100%/12);
+  padding-top: calc(100%/10);
   box-sizing: border-box;
+  font-family: 'Monsterrat', sans-serif;
+background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+
 }
 
 div {
@@ -23,24 +26,17 @@ div {
   box-sizing: border-box;
 }
 
-header {
-  width: 100%;
-  height: 20%;
-  margin-bottom: 5%;
-  text-align: center;
-}
-
-header h1 {
-  color: orange;
-}
-
 main {
   height: 75%;
 }
 
 #game-container {
-  width: 100%;
+  width: 500px;
   height: 100%;
+  border-radius: 4px;
+  box-shadow: 0px 0px 60px 2px rgba(0,0,0,0.26);
+  margin:0 auto;
+  background: #fff;
 }
 
 .game-cell {
@@ -50,20 +46,26 @@ main {
   height: calc(100%/3);
   float: left;
   cursor: pointer;
+  transition: background .2s;
+}
+
+.game-cell:hover {
+  /*background: #ddd;*/
+  background: rgba(0,0,0,0.19);
 }
 
 .game-cell:nth-of-type(5) {
-  border: 3px solid red;
+  border: 3px solid rgba(0,0,0,0.24);
 }
 
 .game-cell:nth-of-type(4), .game-cell:nth-of-type(6) {
-  border: 3px solid red;
+  border: 3px solid rgba(0,0,0,0.24);
   border-left: none;
   border-right: none;
 }
 
 .game-cell:nth-of-type(2), .game-cell:nth-of-type(8) {
-  border: 3px solid red;
+  border: 3px solid rgba(0,0,0,0.24);
   border-top: none;
   border-bottom: none;
 }
@@ -74,9 +76,10 @@ main {
   left: 45%;
   width: 10px;
   height: 50%;
-  background: black;
+  background: rgba(0,0,0,0.7);
   transform: rotate(45deg);
 }
+
 .cross:after {
   content: '';
   position: absolute;
@@ -84,7 +87,7 @@ main {
   left: 0;
   width: 10px;
   height: 100%;
-  background: black;
+  background: rgba(0,0,0,0.7);
   transform: rotate(-90deg);
 }
 
@@ -94,8 +97,112 @@ main {
   left: 35%;
   width: 25%;
   height: 40%;
-  border: 6px solid black;
+  border: 6px solid rgba(0,0,0,0.7);
   border-radius: 50%;
+}
+
+
+.green, .green:hover { background: rgba(0,0,0,0.34); }
+
+#game-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+#new-game {
+  position: relative;
+  padding: 9px;
+  font-size: 14px;
+  background: #FF4136;
+  border: 3px solid #FF4136;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+  border-radius:4px;
+}
+
+#new-game:hover {
+  background: transparent;
+  color: #FF4136;
+}
+
+#new-game:after {
+  content: 'Press ENTER';
+  position: absolute;
+  top: 25%;
+  left: 110%;
+  width: 100%;
+  color: #222;
+  font-size: 12px;
+}
+
+#score {
+  width: calc(100%/2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#score div {
+
+  padding: 2px 12px;
+  /*background: rgba(0,0,0,0.19);*/
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.player-name {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+#score div:nth-of-type(1)>span.player-name {
+  color: #111;
+}
+
+#score div:nth-of-type(2)>span.player-name {
+  color: #111;
+}
+
+.player-score {
+  color: #fff;
+  font-size: 24px;
+}
+
+
+
+#message {
+  min-height: 20%;
+  padding: 12px;
+  margin: 5% 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 100;
+    transform: translateY(0px);
+  }
 }
 
 .clearfix:after {
